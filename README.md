@@ -58,73 +58,73 @@ Returns the length of the vector
 
 Returns a copy of this Vector2 with length 1
 
-*add
+*add*
 
 `v2.add(_a, _b)`
 
 returns a new Vector2 that is the sum of vectors _a and _b
 
-*subtract
+*subtract*
 
 `v2.subtract(_a, _b)`
 
 Returns a new Vector2 representing the difference between _a and _b
 
-*componentMultiply
+*componentMultiply*
 
 `v2.componentMulitply(_a, _b)`
 
 Returns _a scaled by _b on a per-component basis (_a.x * _b.x, _a.y * _b.y)
 
-*scale
+*scale*
 
 `v2.scale(_a, _s)`
 
 Returns _a scaled by _s, a real value scalar.
 
-*rnd
+*rnd*
 
 `v2.rnd()`
 
 Returns a copy of this vector with each component rounded to the nearest integer.
 
-*flr
+*flr*
 
 `v2.flr()`
 
 Returns a copy of this vector with each component rounded down.
 
-*cling
+*cling*
 
 `v2.cling()`
 
 Returns a copy of this vector with each component rounded up.
 
-*dot
+*dot*
 
 `v2.dot(_a, _b)`
 
 Returns the dot product between _a and _b.
 
-*angle
+*angle*
 
 `v2.angle(_a, _b)`
 
 Returns the angle between _a and _b in degrees.
 
-*lerpV2
+*lerpV2*
 
 `v2.rnd()`
 
 Returns a copy of this vector with each component rounded to the nearest integer.
 
-*reflect
+*reflect*
 
 `v2.reflect(_a, _n)`
 
 Returns vector _a reflected from surface normal _n. _n is automatically normalized if it’s length isn’t already equal to one.
 
-*rotate
+*rotate*
 
 `v2.angle(_r)`
 
