@@ -1,36 +1,42 @@
 /**
- * Vector2 struct containing common operations for Cartesian vectors
- * @param {real} _x The x component of the vector
- * @param {real} _y The y component of the vector
- * 
- */
+* Vector2 struct containing common operations for Cartesian vectors
+* @param {real} _x The x component of the vector
+* @param {real} _y The y component of the vector
+*/
 function Vector2(_x,_y) constructor {
-	x=_x
-	y=_y
-	
+    x=_x
+    y=_y
+    
+    static UP = new Vector2(0,-1)
+    static DOWN = new Vector2(0,1)
+    static LEFT = new Vector2(-1,0)
+    static RIGHT = new Vector2(1,0)
+    static ONE = new Vector2(1,1)
+    static ZERO = new Vector2(0,0)
+    
     /*@desc slope method returns the slope of this Vector2
-     * @returns {real} The change over distance, or, "rise over run" of this vector
+    * @returns {real} The change over distance, or, "rise over run" of this vector
     */
-	static slope = function(){
-		if x != 0
-			return y/x
-		else
-			return infinity
-	}
+    static slope = function(){
+        if x != 0
+            return y/x
+        else
+            return infinity
+    }
     //@desc magnitude method returns the length of the vector
     //@returns {real} the length of this vector
-	static magnitude = function(){
-		return sqrt(sqr(x)+sqr(y))
-	}
+    static magnitude = function(){
+        return sqrt(sqr(x)+sqr(y))
+    }
     //@desc normalized method returns a copy of the vector with length 1
     //@returns {Struct.Vector2}
-	static normalized = function(){
-		var _lng = magnitude()
-		if _lng != 0
-			return new Vector2(x/_lng,y/_lng)
-		else
-			return new Vector2(0,0)
-	}
+    static normalized = function(){
+        var _lng = magnitude()
+        if _lng != 0
+            return new Vector2(x/_lng,y/_lng)
+        else
+            return new Vector2(0,0)
+    }
     //@desc normalizedRW normalizes and overwrites this vector. It does not return a value
     static normalizedRW = function(){
         var _lng = magnitude()
@@ -40,13 +46,13 @@ function Vector2(_x,_y) constructor {
         }
     }
     /*  @desc add method combines two vectors additively
-     *  @param {Struct.Vector2} _a the first vector
-     *  @param {Struct.Vector2} _b the second vector
-     * @returns {Struct.Vector2}
-     */
-	static add = function(_a,_b){
-		return new Vector2(_a.x+_b.x,_a.y+_b.y) 	
-	}
+    *  @param {Struct.Vector2} _a the first vector
+    *  @param {Struct.Vector2} _b the second vector
+    * @returns {Struct.Vector2}
+    */
+    static add = function(_a,_b){
+        return new Vector2(_a.x+_b.x,_a.y+_b.y) 	
+    }
     //@desc addRW adds _a to and overwrites this vector. It does not return a value
     //@param {Struct.Vector2} _a the vector to add to this one
     static addRW = function(_a){
@@ -56,11 +62,11 @@ function Vector2(_x,_y) constructor {
     /*  @desc subtract method returns a difference vector
     *  @param {Struct.Vector2} _a the first vector
     *  @param {Struct.Vector2} _b the second vector
-     * @returns {Struct.Vector2}
+    * @returns {Struct.Vector2}
         */
-	static subtract = function(_a,_b){
-		return new Vector2(_a.x-_b.x,_a.y-_b.y)
-	}
+    static subtract = function(_a,_b){
+        return new Vector2(_a.x-_b.x,_a.y-_b.y)
+    }
     //@desc subtractRW subtracts _a from this vector and overwrires it. It does not return a value
     //@param {Struct.Vector2} _a the vector to add to this one
     static subtractRW = function(_a){
@@ -70,11 +76,11 @@ function Vector2(_x,_y) constructor {
     /*  @desc componentMultiply method scales each component of _a by _b in the form v2 = (_a.x*_b.x, _a.y*_b.y)
     *  @param {Struct.Vector2} _a the first vector
     *  @param {Struct.Vector2} _b the second vector
-     * @returns {Struct.Vector2}
+    * @returns {Struct.Vector2}
         */
-	static componentMultiply = function(_a,_b){
-		return new Vector2(_a.x*_b.x,_a.y*_b.y)
-	}
+    static componentMultiply = function(_a,_b){
+        return new Vector2(_a.x*_b.x,_a.y*_b.y)
+    }
     /* @desc scale method adjusts the length of the vector. Use normalize first if you wish to set the length
     *  @param {Struct.Vector2} _a the first vector
     *  @param {real} _s the scalar
@@ -90,13 +96,13 @@ function Vector2(_x,_y) constructor {
     }
 
     /*  @desc scale returns a vector _a multiplied by the scalar _s
-     *  @param {Struct.Vector2} _a the vector to multiply
-     *  @param {real} _s a real number scalar
-     *  @returns {Struct.Vector2}
-     */
-	static scale = function(_a,_s){
-		return new Vector2(_a.x*_s,_a.y*_s) 
-	}
+    *  @param {Struct.Vector2} _a the vector to multiply
+    *  @param {real} _s a real number scalar
+    *  @returns {Struct.Vector2}
+    */
+    static scale = function(_a,_s){
+        return new Vector2(_a.x*_s,_a.y*_s) 
+    }
     //@desc scaleRW scales this vector by _s and overwites it. No value is returned
     //@param {real} _s The 1-dimensional scalar to multiply this vector by 
     static scaleRW = function(_s){
@@ -105,19 +111,19 @@ function Vector2(_x,_y) constructor {
     }
     //@desc rnd method rounds each component to the nearest integer
     //@returns {Struct.Vector2}
-	static rnd = function(){
-		return new Vector2(round(x),round(y)) 
-	}
+    static rnd = function(){
+        return new Vector2(round(x),round(y)) 
+    }
     //@desc rndRW rounds each component of this vector and rewrites it. It returns no value
     static rndRW = function() {
         x=round(x)
         y=round(y)
     }
     //@desc flr method rounds down to the nearest integer
-	//@returns {Struct.Vector2}
+    //@returns {Struct.Vector2}
     static flr = function(){
-		return new Vector2(floor(x),floor(y))
-	}
+        return new Vector2(floor(x),floor(y))
+    }
     //@desc flrRW rounds each component of this vector down and rewrites it. no value returned
     static flrRW = function() {
         x=floor(x)
@@ -136,19 +142,19 @@ function Vector2(_x,_y) constructor {
     /*  @desc dot method returns the dot product of two vectors
     *  @param {Struct.Vector2} _a the first vector
     *  @param {Struct.Vector2} _b the second vector
-     * * @returns {real}
+    * * @returns {real}
         */
-	static dot = function(_a,_b){
-		return _a.x*_b.x+_a.y*_b.y 
-	}
+    static dot = function(_a,_b){
+        return _a.x*_b.x+_a.y*_b.y 
+    }
     /*  @desc angle method returns the angle between two vectors in degrees
     *  @param {Struct.Vector2} _a the first vector
     *  @param {Struct.Vector2} _b the second vector
     *  @returns {real}
     */
-	static angle = function(_a,_b){
-		return arctan2((_b.y-_a.y),(_b.x-_a.x))*(180/pi) % 360
-	}
+    static angle = function(_a,_b){
+        return arctan2((_b.y-_a.y),(_b.x-_a.x))*(180/pi) % 360
+    }
     /*  @desc lerpV2 method returns a new vector interpolated between _a and _b by _t
         *  @param {Struct.Vector2} _a the first vector
         *  @param {Struct.Vector2} _b the second vector
@@ -183,10 +189,10 @@ function Vector2(_x,_y) constructor {
         self.subtractRW(scale(_n,scale(dot(self,_n),2)))
     }
     /* @desc rotate function returns a vector rotated by a number of radians
-     * @param {Struct.Vector2} _a the vector to rotate
-     * @param {real} _r the how far to rotate, in radians
-     * @returns {Struct.Vector2}
-     */
+    * @param {Struct.Vector2} _a the vector to rotate
+    * @param {real} _r the how far to rotate, in radians
+    * @returns {Struct.Vector2}
+    */
     static rotate = function(_a,_r){
         return new Vector2(_a.x*cos(_r)-_a.y*sin(_r),_a.x*sin(_r)+_a.y*cos(_r))
     }
@@ -197,3 +203,4 @@ function Vector2(_x,_y) constructor {
         y=x*sin(_r)+y*cos(_r)
     }
 }
+
