@@ -202,5 +202,12 @@ function Vector2(_x,_y) constructor {
         x=x*cos(_r)-y*sin(_r)
         y=x*sin(_r)+y*cos(_r)
     }
+    //@desc overwrites this vector with new data without alocating/dealocating memory
+    //@param {real} _x the x component
+    //@param {real} _y the y component
+    static rewrite = function(_x,_y){
+        x=_x
+        y=_y
+    }
 }
 
