@@ -91,8 +91,8 @@ function Vector2(_x,_y) constructor {
     * @returns {Struct.Vector2}
         */
     static componentMultiplyRW = function(_a){
-        x=x*_b.x
-        y=y*_b.y
+        x=x*_a.x
+        y=y*_a.y
     }
 
     /*  @desc scale returns a vector _a multiplied by the scalar _s
@@ -210,4 +210,3 @@ function Vector2(_x,_y) constructor {
         y=_y
     }
 }
-
