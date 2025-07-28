@@ -22,7 +22,7 @@ draw_sprite(sprOrbiter,va.x,va.y)//draw sprite at offset
 
 In this example, we create two Vector2’s, one to represent a 16x16 pixel offset which we will modify each frame (v2), and one to represent the absolute world position where we want to draw the sprite (va). Then in the Step event, we rotate v2 by 3 degrees and add this result to our object’s position to get the correct position to draw our orbiter sprite (va). Finally, in the Draw event, we draw the orbiter at it’s new position.
 
-Vector2 is designed to work in a similar way to other game engines. When you use the new keyword or use any of the methods accessible through dot notation, a new struct is created in memory. If you instead modify the x & y components directly, the original vector is modified. This is because the methods inside Vector2 always return a new vector rather than modifying the existing one. This behavior is similar to that of other game engines, so many lessons from those engines apply here.
+Vector2 is designed to work in a similar way to other game engines. When you use the new keyword or use any of the methods accessible through dot notation, a new struct is created in memory. If you instead modify the x & y components directly, or use the RW methods supplied, the original vector is modified instead resulting in less memory usage. This behavior is similar to that of other game engines, so many lessons from those engines apply here. Just remember that it's more performant to use the RW methods where possible such as `multiplyRW`.
 
 Methods:
 Vector2 has a number of common vector operations available to help you finish your game:
