@@ -130,3 +130,8 @@ Returns vector _a reflected from surface normal _n. _n is automatically normaliz
 
 Returns this vector rotated by _r radians. To rotate by degrees, pass degtorad(degrees) into _r.
 
+*copy*
+
+`v2.copy()`
+
+Returns a copy of this vector rather than a reference.
