@@ -211,7 +211,7 @@ function Vector2(_x,_y) constructor {
     }
     //@desc Get a copy of this vector instead of a reference
     //@return {Struct.Vector2} A copy of this vector
-    copy = function() {
+    static copy = function() {
         return new Vector2(x,y)
     }
 }
